@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style2.css">
+    <title>Avaliação Física UV</title>
+</head>
+<body>
+<div id="dados">
+    <div class="main">
+        <div class="menu">
+            <img class="logo" src="img/logo_horizontal_univasso.svg" alt="">
+            <div class="botoes">
+                <a class="linkbotao" href="#dadosEimc">Inserir Dados do Aluno</a>
+                <a class="linkbotao" href="#anamnese">Anamnese          </a>
+                <a class="linkbotao" href="#avaliacaofisica">Avaliação</a>
+                <a class="linkbotao" href="#composicaoCorporal">Relatório</a>
+            </div>
+        </div>
+        <div class="body">
+            <div id="dadosEimc">
+
+                <div class="dadosAluno">
+                    <h1 class="tituloDados">Dados do Aluno</h1>
+                    <hr>
+                    <div class="nome">
+                        <label for="nome">Nome:</label> <br>
+                        <input type="text" id="nome" class="input-nome" required>
+                    </div>
+        
+                    <div class="sexo">
+                        <fieldset>
+                            <legend>Qual seu Sexo?</legend>
+                            <select id="seletorDeSexo">
+                                <option id="masc">Masculino</option>
+                                <option id="fem">Feminino</option>
+                            </select>
+                        </fieldset>
+                    </div>
+        
+                    <div class="nascimento">
+                        <label for="idade">Idade</label> <br>
+                        <input type="years" id="idade" class="input-padrao" min="0" max="100" required placeholder="Ex: 35">
+                    </div>
+        
+                    <button onclick="limparImc ()" id="reset">Limpar</button>
+                </div>
+        
+                    <div class="calculoImc">
+                        <h2 class="tituloImc">Cálculo - IMC</h2>
+                        <hr>
+                        <div class="pesoImc">
+                            <label for="peso">Peso:</label>
+                                <input type="number" id="peso" class="input" min="0" required placeholder="Ex: 75"> kg
+                        </div>
+                            <div class="alturaImc">
+                                <label for="altura">Altura:</label>
+                                <input type="number" id="altura" class="input-padrao" min="0" required placeholder="Ex: 1.75"> m
+                            </div>
+        
+                                <button class="calcular">Calcular</button>
+                                <div class="result" id="resultado"></div>
+                    </div>
+        </div>
+        <div id="anamnese">
+            <h3 class="tituloAnamnese">Anamnese</h3>
+            <p class="panamnese">Histórico que vai desde os sintomas iniciais até o momento da observação clínica, realizado com base nas lembranças do paciente.</p>
+          <hr>
+             <fieldset class="metas">
+                <legend class="tituloperguntasanamnese">Qual seu objetivo com a prática de atividade Física?</legend>
+                <div class="metamassa">
+                    <label for="radio-massa1"><input type="radio" name="metas1" value="metas1" id="radio-massa1">Saúde</label>
+                </div>
+                <div class="metamassa">
+                    <label for="radio-massa2"><input type="radio" name="metas2" value="metas2" id="radio-massa2">Emagrecer</label>
+                </div>
+                <div class="metamassa">
+                    <label for="radio-massa3"><input type="radio" name="metas3" value="metas3" id="radio-massa3">Definir os Músculos</label>
+                </div>
+                <div class="metamassa">
+                    <label for="radio-massa4"><input type="radio" name="metas4" value="metas4" id="radio-massa4">Ganhar massa</label>
+                </div>
+
+            </fieldset>
+        
+            <fieldset class="metas">
+                <legend class="tituloperguntasanamnese">Pratica ou ja praticou exercício Físico?</legend>
+                <label for="radio-simpratica"><input type="radio" name="pratica" value="simpratica" id="radio-simpratica">Sim</label>
+                <label for="radio-naopratica"><input type="radio" name="pratica" value="naopratica" id="radio-naopratica">Não</label>
+                <div class="metativ">
+                    <label class="atividadetexto" for="atividade">Atividade:</label> 
+                    <input type="text" id="atividade" class="input-padrao" required>
+                </div>
+                <div class="metativsem">
+                    <label for="semanal">Frequência Semanal:</label>
+                    <input type="number" id="semanal" class="input-padrao" required min="0" max="7">
+                </div>    
+                
+            </fieldset>
+        
+            <fieldset class="metas">
+                    <legend class="tituloperguntasanamnese">Tem ou teve costume de fumar?</legend>
+                        <label for="radio-simfuma"><input type="radio" name="fuma" value="simfuma" id="radio-simfuma">Sim</label>
+                        <label for="radio-naofuma"><input type="radio" name="fuma" value="naofuma" id="radio-naofuma">Não</label>
+                        <div class="metafumtempo">
+                            <label class="tempotexto" for="tempo">Tempo:</label>
+                            <input type="text" id="tempo" class="input-padrao" required>
+                        </div>
+                        <div class="metafumdia">
+                            <label for="cigarros">Cigarros por dia</label>
+                            <input type="number" id="cigarros" class="input-padrao" required min="0">
+                        </div>
+                        
+            </fieldset>
+        
+            <fieldset class="metas">
+                    <legend class="tituloperguntasanamnese">Possui possiveis restrições para atividades físicas</legend>
+                    <label for="radio-simativ"><input type="radio" name="ativ" value="email" id="radio-simativ">Sim</label>
+                     <label for="radio-naoativ"><input type="radio" name="ativ" value="email" id="radio-naoativ">Não</label>
+                    <div class="b">
+                        <label for="atfisica"></label>
+                        <input type="text" id="atfisica" class="input-padrao" required>
+                    </div>
+                    
+            </fieldset>
+        
+            <fieldset class="metas">
+                    <legend class="tituloperguntasanamnese">Utiliza algum medicamento?</legend>
+                    <label for="radio-simedic"><input type="radio" name="medic" value="email" id="radio-simedic">Sim</label>
+                     <label for="radio-naomedic"><input type="radio" name="medic" value="email" id="radio-naomedic">Não</label>
+                    <div class="b">
+                        <label for="medicamento"></label>
+                            <input type="text" id="medicamento" class="input-padrao" required>
+                    </div>
+            </fieldset>
+        
+            <fieldset class="metas">
+                    <legend class="tituloperguntasanamnese">Sente dores no Corpo?</legend>
+                     <label for="radio-simdor"><input type="radio" name="dor" value="email" id="radio-simdor">Sim</label>
+                     <label for="radio-naodor"><input type="radio" name="dor" value="email" id="radio-naodor">Não</label>
+            </fieldset>
+        
+            <fieldset class="metas">
+                    <legend class="tituloperguntasanamnese">Sofreu algum acidente osteo-muscular recentemente?</legend>
+                    <label for="radio-simacidente"><input type="radio" name="acidente" value="emai2" id="radio-simacidente">Sim</label>
+                    <label for="radio-naoacidente"><input type="radio" name="acidente" value="emai2" id="radio-naoacidente">Não</label>
+            </fieldset>
+        
+            <fieldset class="metas">
+                    <legend class="tituloperguntasanamnese">Está em dieta para ganho ou para perda de peso?</legend>
+                    <label for="dieta"></label>
+                    <label for="radio-simdiet"><input type="radio" name="diet" value="email" id="radio-simdiet">Sim</label>
+                     <label for="radio-naodiet"><input type="radio" name="diet" value="email" id="radio-naodiet">Não</label>
+            </fieldset>
+        
+            <fieldset class="metas">
+                   <legend class="tituloperguntasanamnese">Possui algum tipo de alergia?</legend>
+                        <label for="radio-simaler"><input type="radio" name="alergia" value="email" id="radio-simaler">Sim</label>
+                        <label for="radio-naoaler"><input type="radio" name="alergia" value="email" id="radio-naoaler">Não</label>
+                    <label for="alergia"></label>
+                    <input type="text" id="alergia" class="input-padrao" required>
+            </fieldset>
+        
+                </div>
+        
+                    <hr>
+                    <div id="avaliacaofisica">
+                        <h3 class="tituloFisica">Avaliação Física</h3>
+                <div class="quadradoAvali">
+                    <div class="cutanea">
+                    <h4 class="titulocutaneas">Dobras Cutâneas</h4>
+                    <hr>
+
+                    <div class="cutaneas">
+                        
+                        <div class="a">
+                            <label for="tricipital">Tricipital:</label>
+                                <input type="number" id="tricipital" class="input-padrao"min="0" required>
+                        </div>
+
+                        <div class="a">
+                            <label for="bicipital">Bicipital:</label>
+                                <input type="number" id="bicipital" class="input-padrao"min="0" required>
+                        </div>
+                        
+                        <div class="a">
+                            <label for="peitoral">Peitoral:</label>
+                                <input type="number" id="peitoral" class="input-padrao"min="0" required>
+                        </div>
+
+                        <div class="a">
+                            <label for="subescapular">Subescapular:</label>
+                                <input type="number" id="subescapular" class="input-padrao1"min="0" required> 
+                        </div>
+
+                        <div class="a">
+                            <label for="axilarmedia">Axilar-média:</label>
+                                <input type="number" id="axilarmedia" class="input-padrao"min="0" required>
+                        </div>
+
+                        <div class="a">
+                            <label for="suprailacia">Supra-iláca:</label>
+                                <input type="number" id="suprailacia" class="input-padrao"min="0" required>
+                        </div>
+                        
+                        <div class="a">
+                            <label for="abdominal">Abdominal:</label>
+                                <input type="number" id="abdominal" class="input-padrao"min="0" required>
+                        </div>
+
+                        <div class="a">
+                            <label for="coxa">Coxa:</label>
+                                <input type="number" id="coxa" class="input-padrao"min="0" required>
+                        </div>
+                        
+                        <div class="a">
+                            <label for="panturrilha">Panturrilha:</label>
+                                <input type="number" id="panturrilha" class="input-padrao"min="0" required>
+                        </div> <br>
+
+                        
+                    </div>
+                            <img class="imgcutaneas" src="img/Corpo Humano CED 3.png" alt="">
+
+                </div>
+
+                <div class="perimetria">
+                <h5 class="tituloperimetria">Perimetria (cm)</h5>
+                    <hr>
+                    <div class="perimetrias">
+                            <div class="perimetrias1">
+                                <div class="b">
+                                    <label for="pescoco">Pescoço</label> <br>
+                                        <input type="number" id="pescoco" class="input-padrao"min="0" required>
+                                </div>
+
+                                <div class="b">
+                                    <label for="ombro">1 - Ombro</label> <br>
+                                        <input type="number" id="ombro" class="input-padrao"min="0" required>
+                                </div>
+
+                                <div class="b">
+                                    <label for="torax">2 - Toráx</label> <br>
+                                        <input type="number" id="torax" class="input-padrao"min="0" required>
+                                </div>
+                            </div>  
+
+                        <div class="perimetrias2">
+                            <div class="b">
+                                <label for="cintura">3 - Cintura</label> <br>
+                                    <input type="number" id="cintura" class="input-padrao"min="0" required>
+                            </div>
+                            
+                            <div class="b">
+                                <label for="abdome">4 - Abdome</label> <br>
+                                    <input type="number" id="abdome" class="input-padrao"min="0" required>
+                            </div>
+
+                            <div class="b">
+                                <label for="quadril">5 - Quadril</label> <br>
+                                    <input type="number" id="quadril" class="input-padrao"min="0" required>
+                            </div>
+                    </div>
+                </div>
+
+                    <div class="perimetriaLadoEsquerdo">
+                        <h6 class="tituloladoesquerdoperi">Esquerdo</h6>
+
+                        <div class="b">
+                            <label for="bracoesque">6 - Braço</label>
+                                <input type="number" id="bracoesque" class="input-padrao"min="0" required>
+                        </div>
+
+                        <div class="b">
+                            <label for="antebracoesque">7 - Antebraço</label>
+                                <input type="number" id="antebracoesque" class="input-padrao"min="0" required>
+                        </div>
+
+                        <div class="b">
+                            <label for="coxaperiesque">8 - Coxa</label>
+                                <input type="number" id="coxaperiesque" class="input-padrao"min="0" required>
+                        </div>
+
+                        <div class="b">
+                            <label for="panturrilhaperiesque">9-Panturrilha</label>
+                            <input type="number" id="panturrilhaperiesque" class="input-padrao" min="0" required>
+                        </div>
+                        
+                    </div>
+                            <img class="imgperimetria"  src="img/Corpo Humano CED 2.png" alt="">
+
+
+                    <div class="perimetriaLadoDireito">
+                            <h6 class="tituloladodireitoperi">Direito</h6>
+                            <div class="b">
+                                <label for="bracodire">6 - Braço</label>
+                                    <input type="number" id="bracodire" class="input-padrao"min="0" required>
+                            </div>
+    
+                            <div class="b">
+                                <label for="antebracodire">7 - Antebraço</label>
+                                    <input type="number" id="antebracodire" class="input-padrao"min="0" required>
+                            </div>
+                        
+                            <div class="b">
+                                <label for="coxaperidire">8 - Coxa</label>
+                                    <input type="number" id="coxaperidire" class="input-padrao"min="0" required>
+                            </div>
+                
+                            <div class="b">
+                                <label for="panturrilhaperi">9 - Panturrilha</label>
+                                    <input type="number" id="panturrilhaperi" class="input-padrao"min="0" required>
+                            </div>
+                    </div>
+
+                </div>
+
+                
+            </div>
+            <div class="protocoloDobrasCutaneas">
+                <fieldset class="protocolo">
+                    <legend class="protocololegenda">Protocolo Dobras Cutaneas</legend>
+                    <p class="protocolop">Através da utilização do adipômetro é possível aferir as dobras cutâneas pelo corpo. Elas fornecem a estimativa da composição corporal a partir da avaliação da espessura de uma dobra em milímetros.</p>
+                    <select id="seletorDeDobras">
+                        <option></option>
+                        <option>Guedes 3 Dobras</option>
+                        <option>Jackson e Pollock 3 dobras (18 a 61 anos)</option>
+                        <option>Jackson e Pollock 7 dobras (18 a 61 anos)</option>
+                    </select>
+                </fieldset>
+                <button class="resultadototal" onclick="clicar2()" >Calcular Composição Corporal</button>
+
+                <p id="densidade"></p>
+
+            </div>
+
+
+        </div>
+
+
+        <div id="composicaoCorporal">
+            <h6 class="tituloCorporal">Composição Corporal</h6> <br><br>
+            <div class="resultados">
+
+            
+
+                <div class="resultado1">
+                    <p>Percentual de Gordura</p>
+                    <p id="gorduracomp"  class="resultadocomposicao"></p>
+                    
+                    <p>Massa Gorda. kg</p>
+                    <p id="massacomp" class="resultadocomposicao"></p>
+
+                    <p>Massa livre de Gord. %</p>
+                    <p id="massalivrecomp" class="resultadocomposicao"></p>
+
+                </div>
+                
+                <div class="resultado2">
+                    <p>Massa livre de Gord. kg</p>
+                    <p id="massaolivrekg" class="resultadocomposicao"></p>
+
+                    <p>Massa Muscular.</p> 
+                    <p id="massamuscularcomp" class="resultadocomposicao"></p>
+
+                    <p>Massa Residual.</p>
+                    <p id="massaresicomp" class="resultadocomposicao"></p>
+                </div>
+                    <br><br>
+
+                <div class="resultadogordura">
+                    <p>Classificação % de gordura corporal</p>
+                    <hr>
+                    <p id="classgordura"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <canvas id="chart"></canvas>
+       </div>
+       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       <script src="Untitled-1.js"></script>
+        <button onclick="print_pdf()" class="print">Imprimir</button>
+       <footer>
+        Software desenvolvido por: Caio Silva <br><br>
+        Colaboração: Anrafel Fernandes e Thiaguinho
+    </footer> 
+    </div>    
+</div>   
+</body>
+</html>
